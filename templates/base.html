@@ -1,0 +1,75 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1/css/bootstrap.min.css' %}">
+	{% block head %}{% endblock %}
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="page-header">
+        <nav class="navbar navbar-expand navbar-light bg-light fixed-top shadow-sm">
+            <a class="navbar-brand" href="#"><img src="{% static 'images/logo/logo.jfif' %}" height="60"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-home"></i>{% trans '首页' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '指标案例' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '指标计算' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '数据共享' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans 'SDG球' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '最新动态' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '搜索' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '联系我们' %}</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{% trans '关于' %}</a></li>
+                    <li class="nav-item dropdown">
+                        {% get_available_languages as LANGUAGES %}
+                        <form action="{% url 'set_language' %}" method="post" id="id-language-switcher" hidden>
+                            {% csrf_token %}
+                        </form>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-language" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">{% trans '语言' %}<span class="caret"></span></a>
+                        <div class="dropdown-menu" id="language-switcher" aria-labelledby="navbar-dropdown-language">
+                            {% for code, name in LANGUAGES %}
+                                <a class="dropdown-item language-switcher-item" href="#" value="{{ code }}">{{ name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="page-content" style="margin-top: 100px;">
+        {% block boby %}{% endblock %}
+    </div>
+    <footer class="footer mt-auto py-3 border-top">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
+    <script type="text/javascript" src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-4.4.1/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fontawesome-free/js/all.min.js' %}"></script>
+	<script>
+        $("#language-switcher").on("click", ".language-switcher-item", function (e) {
+            e.preventDefault();
+            let langValue = $(this).attr('value');
+            let form = $("#id-language-switcher");
+            let langInput = document.createElement("input");
+            langInput.type="text";
+            langInput.name="language";
+            langInput.value = langValue;
+            form.append(langInput);
+            form.submit();
+        })
+    </script>
+    {% block script %}{% endblock %}
+</body>
+</html>

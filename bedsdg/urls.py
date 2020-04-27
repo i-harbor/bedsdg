@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import i18n
+
+from .views import home, index
 
 urlpatterns = [
+    path('', index),
+    path('home/', home, name='home'),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
+    path('i18n/', include(i18n)),
 ]
