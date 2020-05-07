@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,12 +33,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 'grappelli',
+    'filebrowser',
+    'django.contrib.admin',
+    'tinymce',
 
     'users',
     'article',
@@ -104,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SITE_ID = 1
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -150,8 +158,34 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # True：关闭浏览器，则Cookie失�
 AUTH_USER_MODEL = 'users.UserProfile'
 
 # 避免django把未以/结尾的url重定向到以/结尾的url
-APPEND_SLASH = False
+# APPEND_SLASH = False
 
 # 登陆url
 LOGIN_URL = '/users/login/'
 LOGOUT_URL = '/users/logout/'
+
+# TinyMCE
+TINYMCE_DEFAULT_CONFIG = {
+    "theme": "silver",
+    # 'inline': True,
+    "height": 500,
+    "menubar": True,
+    "plugins": "advlist,autolink,lists,link,image imagetools,charmap,print,preview,anchor,"
+               "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
+               "code,help,wordcount",
+    "toolbar": "undo redo | formatselect | bold italic backcolor | alignleft aligncenter "
+               "alignright alignjustify | bullist numlist outdent indent | removeformat | preview fullscreen | help",
+    'file_picker_callback': 'file_picker_callback'
+}
+# TINYMCE_COMPRESSOR = True
+TINYMCE_FILEBROWSER = True
+# TINYMCE_INCLUDE_JQUERY = False
+
+# django-filebrowser
+FILEBROWSER_MAX_UPLOAD_SIZE = 1024 * 1024 * 10      # 10MB
+FILEBROWSER_OVERWRITE_EXISTING = False              # 不覆盖上传
+
+#  grappelli
+GRAPPELLI_ADMIN_TITLE = _('地球大数据SDG管理')
+
+

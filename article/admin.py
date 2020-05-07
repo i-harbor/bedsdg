@@ -1,3 +1,25 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Publication, Article
+
+
+@admin.register(Publication)
+class PublicationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'topic', 'remarks')
+    list_display_links = ('id', 'title')
+
+    list_filter = ('topic',)
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'lang', 'create_time', 'author', 'publication')
+    list_display_links = ('id', 'title')
+    list_filter = ('lang', 'create_time')
+
+    raw_id_fields = ('publication',)
+
+    class Media:
+        js = [
+            '/static/tinymce/TinyMCEAdminV5.js'
+        ]

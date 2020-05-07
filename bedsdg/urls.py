@@ -14,15 +14,31 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls import i18n
+from django.contrib.admin.sites import AdminSite
+from django.utils.translation import gettext_lazy as _
+from django.conf import settings
+from django.views.static import serve
+
+from filebrowser.sites import site
 
 from .views import home, index
+
+
+site.storage._location = settings.MEDIA_ROOT
+site.directory = "uploads/"
+
+AdminSite.site_title = _('地球大数据SDG管理')
+AdminSite.site_header = _('地球大数据SDG管理后台')
 
 urlpatterns = [
     path('', index),
     path('home/', home, name='home'),
+    path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
     path('i18n/', include(i18n)),
+    path('tinymce/', include('tinymce.urls')),
+    re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
