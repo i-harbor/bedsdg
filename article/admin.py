@@ -17,6 +17,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     list_filter = ('lang', 'create_time')
 
+    list_select_related = ('publication',)
     raw_id_fields = ('publication',)
 
     class Media:

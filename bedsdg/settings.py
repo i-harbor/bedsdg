@@ -28,6 +28,7 @@ SECRET_KEY = '1ml_b@eau7+r3#33#o%uri23d8d)td&y@tj3!71ml4_dah+*_*'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+INTERNAL_IPS = []
 
 
 # Application definition
@@ -135,6 +136,16 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'TIMEOUT': 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000     # number of cache limit
+        }
+    }
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -188,4 +199,13 @@ FILEBROWSER_OVERWRITE_EXISTING = False              # 不覆盖上传
 #  grappelli
 GRAPPELLI_ADMIN_TITLE = _('地球大数据SDG管理')
 
+
+if DEBUG:
+    # django debug toolbar
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+    DEBUG_TOOLBAR_CONFIG = {
+        # 'SHOW_COLLAPSED': True,
+    }
+    INTERNAL_IPS += ['159.226.91.152', '127.0.0.1']     # 通过这些IP地址访问时，页面才会出现django debug toolbar面板
 

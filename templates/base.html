@@ -7,12 +7,28 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bedsdg/css/common.css' %}">
 	{% block head %}{% endblock %}
 	<title>{% block title %}{% endblock %}</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .page-content {
+            flex: 1 0 auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="page-header">
-        <nav class="navbar navbar-expand navbar-light bg-light fixed-top shadow-sm">
+    <div class="">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
             <a class="navbar-brand" href="#"><img src="{% static 'images/logo/logo.jfif' %}" height="60"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +36,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-home"></i>{% trans '首页' %}</a></li>
+                    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link"><i class="fa fa-home"></i>{% trans '首页' %}</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">{% trans '指标案例' %}</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">{% trans '指标计算' %}</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">{% trans '数据共享' %}</a></li>
@@ -46,7 +62,7 @@
             </div>
         </nav>
     </div>
-    <div class="page-content" style="margin-top: 100px;">
+    <div class="page-content" style="margin-top: 90px;">
         {% block boby %}{% endblock %}
     </div>
     <footer class="footer mt-auto py-3 border-top">

@@ -28,6 +28,8 @@ class Publication(models.Model):
                                   help_text=_('可以不配置，但主题为亮点案例时, 需要配置封面图轮播展示'))
     title = models.CharField(max_length=255, verbose_name=_('内容标题'), help_text=_('可以用要发布的文章的标题，每个发布内容'
                              '对应着不同语言版本的文章，各种语言版本的文章需要关联到同一个发布内容，以便各种语言版本文章之间的切换'))
+    enable = models.BooleanField(default=False, verbose_name=_('发布状态'),
+                                 help_text=_('是否发布可见，默认不发布可见，一般在文章编辑完成后再发布可见'))
     remarks = models.CharField(max_length=255, blank=True, default='', verbose_name=_('备注'))
 
     class Meta:
@@ -47,12 +49,18 @@ class Article(models.Model):
     """
     文章模型
     """
+    LANG_UNKNOWN = 0
     LANG_CHINESE = 1
     LANG_ENGLISH = 2
     LANG_CHOICES = (
         (LANG_CHINESE, _('中文')),
         (LANG_ENGLISH, _('英文')),
     )
+
+    LANG_MAP = {
+        'zh-hans': LANG_CHINESE,
+        'en': LANG_ENGLISH
+    }
 
     id = models.AutoField(primary_key=True, verbose_name='ID')
     lang = models.SmallIntegerField(choices=LANG_CHOICES, default=LANG_CHINESE, verbose_name=_('语言'))
@@ -63,6 +71,8 @@ class Article(models.Model):
     content = tiny_models.HTMLField(default='', verbose_name=_('正文内容'))
     create_time = models.DateTimeField(auto_now_add=True, verbose_name=_('创建时间'))
     modify_time = models.DateTimeField(auto_now=True, verbose_name=_('修改时间'))
+    enable = models.BooleanField(default=False, verbose_name=_('发布状态'),
+                                 help_text=_('是否发布可见，默认不发布可见，一般在文章编辑完成后再发布可见'))
     publication = models.ForeignKey(to=Publication, related_name='article_set', on_delete=models.SET_NULL,
                                     null=True, verbose_name=_('文章所属发布内容'),
                                     help_text=_('不同语言版本的文章所属发布内容，例如要发布新的内容a，需要'
@@ -83,6 +93,22 @@ class Article(models.Model):
 
     def __repr__(self):
         return f'<Article>{self.title}'
+
+    @staticmethod
+    def get_lang_value_by_code(lang_code: str):
+        """
+        获取语言简码对应的文章语言字段的值
+
+        :param lang_code: 语言简码
+        :return: int
+            >0   # success
+            0   # not found
+        """
+        try:
+            return Article.LANG_MAP[lang_code]
+        except KeyError as e:
+            return Article.LANG_UNKNOWN
+
 
 
 

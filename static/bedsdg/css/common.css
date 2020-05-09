@@ -1,0 +1,6 @@
+/*单行文本长度超出显示省略号*/
+.oneline-ellipsis{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}

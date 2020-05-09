@@ -32,9 +32,11 @@ site.directory = "uploads/"
 AdminSite.site_title = _('地球大数据SDG管理')
 AdminSite.site_header = _('地球大数据SDG管理后台')
 
+
 urlpatterns = [
     path('', index),
     path('home/', home, name='home'),
+    path('article/', include('article.urls', namespace='article')),
     path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
@@ -42,3 +44,15 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
+
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+
+    ] + urlpatterns

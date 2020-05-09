@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block boby %}
+    <div class="container-fluid h-100">
+        <div class="offset-sm-1 col-sm-10 h-100 shadow-sm">
+            {% if art %}
+                <div>
+                    <p class="text-center">{{ art.title }}</p>
+                    <p class="text-center">{% trans '作者' %}: {{ art.author }}</p>
+                    <p class="text-center">{% trans '发布时间' %}: {{ art.create_time }}</p>
+                </div>
+                <hr>
+                <div>{{ art.content|safe }}</div>
+            {% else %}
+                <div>
+                    <p class="text-center">{% trans '未发布当前语言版本的内容' %}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

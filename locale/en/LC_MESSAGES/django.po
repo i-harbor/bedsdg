@@ -70,7 +70,7 @@ msgstr "Remarks"
 
 #: article/models.py:36
 msgid "0_发布内容"
-msgstr "0_Publish content"
+msgstr "0_Publications"
 
 #: article/models.py:53
 msgid "中文"
