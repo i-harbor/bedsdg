@@ -7,7 +7,7 @@ function file_picker_callback(callback, value, type) {
         cmsURL += '&input=';
 
     const instanceApi = tinyMCE.activeEditor.windowManager.openUrl({
-        title: 'Select Image',
+        title: 'Select',
         url: cmsURL,
         width: 850,
         height: 650,

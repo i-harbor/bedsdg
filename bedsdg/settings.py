@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-from django.utils.translation import gettext_lazy as _
+# from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -178,7 +178,6 @@ LOGOUT_URL = '/users/logout/'
 # TinyMCE
 TINYMCE_DEFAULT_CONFIG = {
     "theme": "silver",
-    # 'inline': True,
     "height": 500,
     "menubar": True,
     "plugins": "advlist,autolink,lists,link,image imagetools,charmap,print,preview,anchor,"
@@ -195,9 +194,19 @@ TINYMCE_FILEBROWSER = True
 # django-filebrowser
 FILEBROWSER_MAX_UPLOAD_SIZE = 1024 * 1024 * 10      # 10MB
 FILEBROWSER_OVERWRITE_EXISTING = False              # 不覆盖上传
+FILEBROWSER_EXTENSIONS = {
+    'Image': ['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'],
+    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.docx'],
+    'Video': ['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm'],
+    'Audio': ['.mp3', '.wav', '.aiff', '.midi', '.m4p']
+}
 
-#  grappelli
-GRAPPELLI_ADMIN_TITLE = _('地球大数据SDG管理')
+FILEBROWSER_SELECT_FORMATS = {
+    'file': ['Image', 'Document', 'Video', 'Audio'],
+    'image': ['Image'],
+    'document': ['Document'],
+    'media': ['Video', 'Audio'],
+}
 
 
 if DEBUG:

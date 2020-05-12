@@ -22,7 +22,7 @@
                             {% else %}
                                 <div class="carousel-item">
                             {% endif %}
-                            <a href="{% url 'article:pub-detail' h.id %}">
+                            <a href="{% url 'article:pub-detail' h.id %}" target="_blank">
                                 <img src="{{ h.cover_image.url }}" class="d-block w-100 mh-100" alt="">
                             </a>
                             <div class="carousel-caption d-none d-md-block">

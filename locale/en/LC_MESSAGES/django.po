@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-07 16:26+0800\n"
+"POT-Creation-Date: 2020-05-12 16:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,19 @@ msgstr ""
 msgid "文章"
 msgstr "Article"
 
-#: article/models.py:18 templates/base.html:24 templates/index.html:53
+#: article/models.py:18 templates/base.html:40 templates/index.html:50
 msgid "指标案例"
 msgstr "Case Study"
 
-#: article/models.py:19 templates/base.html:28 templates/index.html:64
+#: article/models.py:19 templates/base.html:44 templates/index.html:68
 msgid "最新动态"
 msgstr "News"
 
-#: article/models.py:20 templates/base.html:26 templates/index.html:76
+#: article/models.py:20 templates/base.html:42 templates/index.html:86
 msgid "数据共享"
 msgstr "Data Sharing"
 
-#: article/models.py:21 templates/index.html:89
+#: article/models.py:21 templates/index.html:104
 msgid "前沿扫描"
 msgstr "Updates"
 
@@ -52,7 +52,9 @@ msgstr "Cover image"
 
 #: article/models.py:28
 msgid "可以不配置，但主题为亮点案例时, 需要配置封面图轮播展示"
-msgstr "It can not be configured, but when the theme is a highlight case, it is necessary to configure the cover map for round show."
+msgstr ""
+"It can not be configured, but when the theme is a highlight case, it is "
+"necessary to configure the cover map for round show."
 
 #: article/models.py:29
 msgid "内容标题"
@@ -62,71 +64,95 @@ msgstr "Content title"
 msgid ""
 "可以用要发布的文章的标题，每个发布内容对应着不同语言版本的文章，各种语言版本"
 "的文章需要关联到同一个发布内容，以便各种语言版本文章之间的切换"
-msgstr "You can use the title of the article to be published. Each published content corresponds to articles of different language versions. Articles of different language versions need to be associated with the same published content so as to switch between articles of different language versions."
+msgstr ""
+"You can use the title of the article to be published. Each published content "
+"corresponds to articles of different language versions. Articles of "
+"different language versions need to be associated with the same published "
+"content so as to switch between articles of different language versions."
 
-#: article/models.py:31
+#: article/models.py:31 article/models.py:74
+msgid "发布状态"
+msgstr "Publication status"
+
+#: article/models.py:32 article/models.py:75
+msgid "是否发布可见，默认不发布可见，一般在文章编辑完成后再发布可见"
+msgstr "Whether to publish visible or not, do not publish visible by default, generally publish visible after editing the article."
+
+#: article/models.py:33
 msgid "备注"
 msgstr "Remarks"
 
-#: article/models.py:36
+#: article/models.py:38
 msgid "0_发布内容"
 msgstr "0_Publications"
 
-#: article/models.py:53
+#: article/models.py:56
 msgid "中文"
 msgstr "Chinese"
 
-#: article/models.py:54
+#: article/models.py:57
 msgid "英文"
 msgstr "English"
 
-#: article/models.py:58 templates/base.html:38
+#: article/models.py:66 templates/base.html:54
 msgid "语言"
 msgstr "Language"
 
-#: article/models.py:59
+#: article/models.py:67
 msgid "标题"
 msgstr "Title"
 
-#: article/models.py:60
+#: article/models.py:68
 msgid "概述"
 msgstr "Summary"
 
-#: article/models.py:61
+#: article/models.py:69
 msgid "可以为空，可用于亮点案例的简介"
-msgstr "It can be blank and can be used for the introduction of highlight cases."
+msgstr ""
+"It can be blank and can be used for the introduction of highlight cases."
 
-#: article/models.py:62
+#: article/models.py:70 article/templates/pub_detail.html:10
 msgid "作者"
 msgstr "Author"
 
-#: article/models.py:63
+#: article/models.py:71
 msgid "正文内容"
 msgstr "Body content"
 
-#: article/models.py:64
+#: article/models.py:72
 msgid "创建时间"
 msgstr "Creation time"
 
-#: article/models.py:65
+#: article/models.py:73
 msgid "修改时间"
 msgstr "Modification time"
 
-#: article/models.py:67
+#: article/models.py:77
 msgid "文章所属发布内容"
 msgstr "Publication of article"
 
-#: article/models.py:68
+#: article/models.py:78
 msgid ""
 "不同语言版本的文章所属发布内容，例如要发布新的内容a，需要先创建发布内容a，中"
 "文版a文章和英文版a文章必须关联对应的发布内容a"
-msgstr "For example, to release new content a, you need to create release content a first. Chinese version a articles and English version a articles must be associated with corresponding release content a."
+msgstr ""
+"For example, to release new content a, you need to create release content a "
+"first. Chinese version a articles and English version a articles must be "
+"associated with corresponding release content a."
 
-#: article/models.py:78
+#: article/models.py:88
 msgid "1_文章"
 msgstr "1_Article"
 
-#: bedsdg/settings.py:189 bedsdg/urls.py:32
+#: article/templates/pub_detail.html:11
+msgid "发布时间"
+msgstr "Publication time"
+
+#: article/templates/pub_detail.html:17
+msgid "未发布当前语言版本的内容"
+msgstr "Content in the current language version is not published."
+
+#: bedsdg/urls.py:32
 msgid "地球大数据SDG管理"
 msgstr "SDG management of earth big data"
 
@@ -134,51 +160,51 @@ msgstr "SDG management of earth big data"
 msgid "地球大数据SDG管理后台"
 msgstr "Earth big data SDG management admin"
 
-#: templates/base.html:23
+#: templates/base.html:39
 msgid "首页"
 msgstr "Home"
 
-#: templates/base.html:25
+#: templates/base.html:41
 msgid "指标计算"
 msgstr "Indicator Tracking"
 
-#: templates/base.html:27
+#: templates/base.html:43
 msgid "SDG球"
 msgstr "Virtual Earth"
 
-#: templates/base.html:29
+#: templates/base.html:45
 msgid "搜索"
 msgstr "Search"
 
-#: templates/base.html:30
+#: templates/base.html:46
 msgid "联系我们"
 msgstr "Contact"
 
-#: templates/base.html:31
+#: templates/base.html:47
 msgid "关于"
 msgstr "About"
 
-#: templates/index.html:112
+#: templates/index.html:133
 msgid "零饥饿"
 msgstr "Zero Hunger"
 
-#: templates/index.html:122
+#: templates/index.html:143
 msgid "清洁饮水和卫生设施"
 msgstr "Clean Water and Sanitation"
 
-#: templates/index.html:132
+#: templates/index.html:153
 msgid "可持续城市和社区"
 msgstr "Sustainable Cities and Communities"
 
-#: templates/index.html:142
+#: templates/index.html:163
 msgid "气候行动"
 msgstr "Climate Action"
 
-#: templates/index.html:152
+#: templates/index.html:173
 msgid "海洋生态"
 msgstr "Life below Water"
 
-#: templates/index.html:162
+#: templates/index.html:183
 msgid "陆地生物"
 msgstr "Life on Land"
 

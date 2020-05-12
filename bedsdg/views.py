@@ -10,7 +10,7 @@ def index(request):
     return redirect(to=reverse('home'))
 
 
-@cache_page(60*2)
+# @cache_page(60*2)
 def home(request):
     lang_code = get_language()
     lang = Article.get_lang_value_by_code(lang_code=lang_code)
