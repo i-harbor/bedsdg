@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.2.12"
+django = "==2.2.15"
 django-tinymce = "==3.0.2"
 pillow = "==7.1.2"
 django-debug-toolbar = "==2.2"

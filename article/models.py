@@ -67,7 +67,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('标题'))
     summary = models.CharField(max_length=255, default='', blank=True, verbose_name=_('概述'),
                                help_text=_('可以为空，可用于亮点案例的简介'))
-    author = models.CharField(max_length=255, default='', verbose_name=_('作者'))
+    author = models.CharField(max_length=255, default='', verbose_name=_('编辑'))
     content = tiny_models.HTMLField(default='', verbose_name=_('正文内容'))
     create_time = models.DateTimeField(auto_now_add=True, verbose_name=_('创建时间'))
     modify_time = models.DateTimeField(auto_now=True, verbose_name=_('修改时间'))

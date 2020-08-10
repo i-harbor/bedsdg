@@ -6,9 +6,12 @@
         <div class="offset-sm-1 col-sm-10 h-100 shadow-sm">
             {% if art %}
                 <div>
-                    <p class="text-center">{{ art.title }}</p>
-                    <p class="text-center">{% trans '作者' %}: {{ art.author }}</p>
-                    <p class="text-center">{% trans '发布时间' %}: {{ art.create_time }}</p>
+                    <p class="text-center h2">{{ art.title }}</p>
+                    <div class="text-right row">
+                        <span class="col-md-12 text-secondary">{% trans '编辑' %}: {{ art.author }}</span>
+                        <span class="col-md-12 text-secondary">{% trans '发布时间' %}: {{ art.create_time }}</span>
+                        <span class="col-md-12 text-secondary">{% trans '最近更新时间' %}: {{ art.modify_time }}</span>
+                    </div>
                 </div>
                 <hr>
                 <div>{{ art.content|safe }}</div>

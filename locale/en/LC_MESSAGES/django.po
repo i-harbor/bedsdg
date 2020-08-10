@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-12 16:22+0800\n"
+"POT-Creation-Date: 2020-08-10 12:17+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,15 @@ msgstr ""
 msgid "文章"
 msgstr "Article"
 
-#: article/models.py:18 templates/base.html:40 templates/index.html:50
+#: article/models.py:18 templates/base.html:41 templates/index.html:50
 msgid "指标案例"
 msgstr "Case Study"
 
-#: article/models.py:19 templates/base.html:44 templates/index.html:68
+#: article/models.py:19 templates/base.html:45 templates/index.html:68
 msgid "最新动态"
 msgstr "News"
 
-#: article/models.py:20 templates/base.html:42 templates/index.html:86
+#: article/models.py:20 templates/base.html:43 templates/index.html:86
 msgid "数据共享"
 msgstr "Data Sharing"
 
@@ -76,7 +76,9 @@ msgstr "Publication status"
 
 #: article/models.py:32 article/models.py:75
 msgid "是否发布可见，默认不发布可见，一般在文章编辑完成后再发布可见"
-msgstr "Whether to publish visible or not, do not publish visible by default, generally publish visible after editing the article."
+msgstr ""
+"Whether to publish visible or not, do not publish visible by default, "
+"generally publish visible after editing the article."
 
 #: article/models.py:33
 msgid "备注"
@@ -94,7 +96,7 @@ msgstr "Chinese"
 msgid "英文"
 msgstr "English"
 
-#: article/models.py:66 templates/base.html:54
+#: article/models.py:66 templates/base.html:55
 msgid "语言"
 msgstr "Language"
 
@@ -111,9 +113,9 @@ msgid "可以为空，可用于亮点案例的简介"
 msgstr ""
 "It can be blank and can be used for the introduction of highlight cases."
 
-#: article/models.py:70 article/templates/pub_detail.html:10
-msgid "作者"
-msgstr "Author"
+#: article/models.py:70 article/templates/pub_detail.html:11
+msgid "编辑"
+msgstr "Editor"
 
 #: article/models.py:71
 msgid "正文内容"
@@ -144,11 +146,15 @@ msgstr ""
 msgid "1_文章"
 msgstr "1_Article"
 
-#: article/templates/pub_detail.html:11
+#: article/templates/pub_detail.html:12
 msgid "发布时间"
 msgstr "Publication time"
 
-#: article/templates/pub_detail.html:17
+#: article/templates/pub_detail.html:13
+msgid "最近更新时间"
+msgstr "Last update time"
+
+#: article/templates/pub_detail.html:20
 msgid "未发布当前语言版本的内容"
 msgstr "Content in the current language version is not published."
 
@@ -160,27 +166,27 @@ msgstr "SDG management of earth big data"
 msgid "地球大数据SDG管理后台"
 msgstr "Earth big data SDG management admin"
 
-#: templates/base.html:39
+#: templates/base.html:40
 msgid "首页"
 msgstr "Home"
 
-#: templates/base.html:41
+#: templates/base.html:42
 msgid "指标计算"
 msgstr "Indicator Tracking"
 
-#: templates/base.html:43
+#: templates/base.html:44
 msgid "SDG球"
 msgstr "Virtual Earth"
 
-#: templates/base.html:45
+#: templates/base.html:46
 msgid "搜索"
 msgstr "Search"
 
-#: templates/base.html:46
+#: templates/base.html:47
 msgid "联系我们"
 msgstr "Contact"
 
-#: templates/base.html:47
+#: templates/base.html:48
 msgid "关于"
 msgstr "About"
 
@@ -231,3 +237,6 @@ msgstr "Telephone"
 #: users/models.py:11
 msgid "公司/单位"
 msgstr "Company"
+
+#~ msgid "作者"
+#~ msgstr "Author"

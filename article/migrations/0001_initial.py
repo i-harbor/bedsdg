@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('lang', models.SmallIntegerField(choices=[(1, '中文'), (2, '英文')], default=1, verbose_name='语言')),
                 ('title', models.CharField(max_length=255, verbose_name='标题')),
                 ('summary', models.CharField(blank=True, default='', help_text='可以为空，可用于亮点案例的简介', max_length=255, verbose_name='概述')),
-                ('author', models.CharField(default='', max_length=255, verbose_name='作者')),
+                ('author', models.CharField(default='', max_length=255, verbose_name='编辑')),
                 ('content', tinymce.models.HTMLField(default='', verbose_name='正文内容')),
                 ('create_time', models.DateTimeField(auto_now_add=True, verbose_name='创建时间')),
                 ('modify_time', models.DateTimeField(auto_now=True, verbose_name='修改时间')),
