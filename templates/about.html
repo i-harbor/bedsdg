@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans '关于' %}{% endblock %}
+
+{% block boby %}
+    <div class="container-fluid h-100">
+        <div class="offset-sm-2 col-sm-8 h-100 pt-2">
+            {% if art %}
+                <div>{{ art.content|safe }}</div>
+            {% else %}
+                <div>
+                    <p class="text-center">{% trans '未编辑有关内容' %}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

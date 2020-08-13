@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Publication, Article
+from .models import Publication, Article, About
 
 
 @admin.register(Publication)
@@ -19,6 +19,17 @@ class ArticleAdmin(admin.ModelAdmin):
 
     list_select_related = ('publication',)
     raw_id_fields = ('publication',)
+
+    class Media:
+        js = [
+            '/static/tinymce/TinyMCEAdminV5.js'
+        ]
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('id', 'lang', 'create_time', 'modify_time')
+    list_display_links = ('id',)
 
     class Media:
         js = [

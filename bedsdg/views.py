@@ -3,14 +3,14 @@ from django.utils.translation import get_language
 from django.db.models import Prefetch
 from django.views.decorators.cache import cache_page
 
-from article.models import Publication, Article
+from article.models import Publication, Article, About
 
 
 def index(request):
     return redirect(to=reverse('home'))
 
 
-# @cache_page(60*2)
+@cache_page(60*2)
 def home(request):
     limit = 6       # 最多展示数量
 
@@ -33,3 +33,13 @@ def home(request):
     return render(request, 'index.html',
                   context={'highlights': highlights, 'study_pubs': study_pubs, 'new_pubs': new_pubs,
                            'share_pubs': share_pubs, 'update_pubs': update_pubs, 'display_limit': limit})
+
+
+def about(request, *args, **kwargs):
+    lang_code = get_language()
+    lang = About.get_lang_value_by_code(lang_code=lang_code)
+    art = About.objects.filter(lang=lang).first()
+    if not art:
+        art = About.objects.first()
+
+    return render(request, 'about.html', {'art': art})

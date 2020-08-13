@@ -45,7 +45,7 @@
                     <li class="nav-item"><a href="{% url 'article:pub-list' %}?topic=2" class="nav-link">{% trans '最新动态' %}</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">{% trans '搜索' %}</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">{% trans '联系我们' %}</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">{% trans '关于' %}</a></li>
+                    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">{% trans '关于' %}</a></li>
                     <li class="nav-item dropdown">
                         {% get_available_languages as LANGUAGES %}
                         <form action="{% url 'set_language' %}" method="post" id="id-language-switcher" hidden>

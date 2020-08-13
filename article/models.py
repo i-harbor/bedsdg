@@ -110,3 +110,54 @@ class Article(models.Model):
         except KeyError as e:
             return Article.LANG_UNKNOWN
 
+
+class About(models.Model):
+    """
+    关于网站
+    """
+    LANG_UNKNOWN = 0
+    LANG_CHINESE = 1
+    LANG_ENGLISH = 2
+    LANG_CHOICES = (
+        (LANG_CHINESE, _('中文')),
+        (LANG_ENGLISH, _('英文')),
+    )
+
+    LANG_MAP = {
+        'zh-hans': LANG_CHINESE,
+        'en': LANG_ENGLISH
+    }
+
+    id = models.AutoField(primary_key=True, verbose_name='ID')
+    lang = models.SmallIntegerField(choices=LANG_CHOICES, default=LANG_CHINESE, verbose_name=_('语言'))
+    content = tiny_models.HTMLField(default='', verbose_name=_('正文内容'))
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name=_('创建时间'))
+    modify_time = models.DateTimeField(auto_now=True, verbose_name=_('修改时间'))
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = _('关于网站')
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return f'{self.id}'
+
+    def __repr__(self):
+        return f'<About>{self.get_lang_display()}'
+
+    @staticmethod
+    def get_lang_value_by_code(lang_code: str):
+        """
+        获取语言简码对应的文章语言字段的值
+
+        :param lang_code: 语言简码
+        :return: int
+            >0   # success
+            0   # not found
+        """
+        try:
+            return Article.LANG_MAP[lang_code]
+        except KeyError as e:
+            return Article.LANG_UNKNOWN
+
+

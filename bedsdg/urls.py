@@ -23,7 +23,7 @@ from django.views.static import serve
 
 from filebrowser.sites import site
 
-from .views import home, index
+from . import views
 
 
 site.storage._location = settings.MEDIA_ROOT
@@ -34,8 +34,9 @@ AdminSite.site_header = _('地球大数据SDG管理后台')
 
 
 urlpatterns = [
-    path('', index),
-    path('home/', home, name='home'),
+    path('', views.index),
+    path('home/', views.home, name='home'),
+    path('about/', views.about, name='about'),
     path('article/', include('article.urls', namespace='article')),
     path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
