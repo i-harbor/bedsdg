@@ -5,7 +5,7 @@ from .models import Publication, Article
 
 @admin.register(Publication)
 class PublicationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'topic', 'remarks')
+    list_display = ('id', 'title', 'topic', 'enable', 'remarks')
     list_display_links = ('id', 'title')
 
     list_filter = ('topic',)
@@ -13,7 +13,7 @@ class PublicationAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'lang', 'create_time', 'author', 'publication')
+    list_display = ('id', 'title', 'lang', 'create_time', 'enable', 'author', 'publication')
     list_display_links = ('id', 'title')
     list_filter = ('lang', 'create_time')
 

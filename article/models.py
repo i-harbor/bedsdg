@@ -21,6 +21,7 @@ class Publication(models.Model):
         (TOPIC_UPDATES, _('前沿扫描')),
         (TOPIC_HIGHLIGHT_CASES, _('亮点案例')),
     )
+    TOPIC_INVALID_VALUES = (TOPIC_CASE_STUDY, TOPIC_NEWS, TOPIC_DATA_SHARING, TOPIC_UPDATES, TOPIC_HIGHLIGHT_CASES)
 
     id = models.AutoField(primary_key=True, verbose_name='ID')
     topic = models.SmallIntegerField(choices=TOPIC_CHOICES, default=TOPIC_NEWS, verbose_name=_('主题'))
@@ -108,7 +109,4 @@ class Article(models.Model):
             return Article.LANG_MAP[lang_code]
         except KeyError as e:
             return Article.LANG_UNKNOWN
-
-
-
 

@@ -59,6 +59,11 @@
                                     {% endif %}
                                 {% endwith %}
                             {% endfor %}
+                            {% ifequal study_pubs|length display_limit %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'article:pub-list' %}?topic={{ study_pubs.0.topic }}" target="_blank">{% trans '浏览更多' %} >></a>
+                                </li>
+                            {% endifequal %}
                         </ul>
                     </div>
                 </div>
@@ -77,6 +82,11 @@
                                     {% endif %}
                                 {% endwith %}
                             {% endfor %}
+                            {% ifequal new_pubs|length display_limit %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'article:pub-list' %}?topic={{ new_pubs.0.topic }}" target="_blank">{% trans '浏览更多' %} >></a>
+                                </li>
+                            {% endifequal %}
                         </ul>
                     </div>
                 </div>
@@ -95,6 +105,11 @@
                                     {% endif %}
                                 {% endwith %}
                             {% endfor %}
+                            {% ifequal share_pubs|length display_limit %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'article:pub-list' %}?topic={{ share_pubs.0.topic }}" target="_blank">{% trans '浏览更多' %} >></a>
+                                </li>
+                            {% endifequal %}
                         </ul>
                     </div>
                 </div>
@@ -113,6 +128,11 @@
                                     {% endif %}
                                 {% endwith %}
                             {% endfor %}
+                            {% ifequal update_pubs|length display_limit %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'article:pub-list' %}?topic={{ update_pubs.0.topic }}" target="_blank">{% trans '浏览更多' %} >></a>
+                                </li>
+                            {% endifequal %}
                         </ul>
                     </div>
                 </div>

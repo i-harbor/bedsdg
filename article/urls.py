@@ -8,4 +8,5 @@ app_name = 'article'
 
 urlpatterns = [
     path('pub/<int:id>', views.PubDetailView.as_view(), name='pub-detail'),
+    path('pubs/', views.PubListView.as_view(), name='pub-list'),
 ]
