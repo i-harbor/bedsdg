@@ -17,7 +17,7 @@
                                         <p class="text-secondary">{% trans '最新修改时间' %}：{{ art.modify_time }}</p>
                                     {% else %}
                                         <h4 class="mt-0"><a href="{% url 'article:pub-detail' id=pub.id %}">{{ pub.title }}</a></h4>
-                                        <p class="text-secondary">{% trans '未发布当前语言版本的文章' %}</p>
+                                        <p class="text-secondary">{% trans '未发布当前语言版本的内容' %}</p>
                                     {% endif %}
                                 </div>
                             </div>

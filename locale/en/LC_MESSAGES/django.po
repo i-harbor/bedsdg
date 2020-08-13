@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 12:17+0800\n"
+"POT-Creation-Date: 2020-08-13 15:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgstr "Article"
 msgid "指标案例"
 msgstr "Case Study"
 
-#: article/models.py:19 templates/base.html:45 templates/index.html:68
+#: article/models.py:19 templates/base.html:45 templates/index.html:73
 msgid "最新动态"
 msgstr "News"
 
-#: article/models.py:20 templates/base.html:43 templates/index.html:86
+#: article/models.py:20 templates/base.html:43 templates/index.html:96
 msgid "数据共享"
 msgstr "Data Sharing"
 
-#: article/models.py:21 templates/index.html:104
+#: article/models.py:21 templates/index.html:119
 msgid "前沿扫描"
 msgstr "Updates"
 
@@ -42,25 +42,25 @@ msgstr "Updates"
 msgid "亮点案例"
 msgstr "Highlight Cases"
 
-#: article/models.py:26
+#: article/models.py:27
 msgid "主题"
 msgstr "Topic"
 
-#: article/models.py:27
+#: article/models.py:28
 msgid "封面图片"
 msgstr "Cover image"
 
-#: article/models.py:28
+#: article/models.py:29
 msgid "可以不配置，但主题为亮点案例时, 需要配置封面图轮播展示"
 msgstr ""
 "It can not be configured, but when the theme is a highlight case, it is "
 "necessary to configure the cover map for round show."
 
-#: article/models.py:29
+#: article/models.py:30
 msgid "内容标题"
 msgstr "Content title"
 
-#: article/models.py:29
+#: article/models.py:30
 msgid ""
 "可以用要发布的文章的标题，每个发布内容对应着不同语言版本的文章，各种语言版本"
 "的文章需要关联到同一个发布内容，以便各种语言版本文章之间的切换"
@@ -70,70 +70,70 @@ msgstr ""
 "different language versions need to be associated with the same published "
 "content so as to switch between articles of different language versions."
 
-#: article/models.py:31 article/models.py:74
+#: article/models.py:32 article/models.py:75
 msgid "发布状态"
 msgstr "Publication status"
 
-#: article/models.py:32 article/models.py:75
+#: article/models.py:33 article/models.py:76
 msgid "是否发布可见，默认不发布可见，一般在文章编辑完成后再发布可见"
 msgstr ""
 "Whether to publish visible or not, do not publish visible by default, "
 "generally publish visible after editing the article."
 
-#: article/models.py:33
+#: article/models.py:34
 msgid "备注"
 msgstr "Remarks"
 
-#: article/models.py:38
+#: article/models.py:39
 msgid "0_发布内容"
 msgstr "0_Publications"
 
-#: article/models.py:56
+#: article/models.py:57 article/models.py:122
 msgid "中文"
 msgstr "Chinese"
 
-#: article/models.py:57
+#: article/models.py:58 article/models.py:123
 msgid "英文"
 msgstr "English"
 
-#: article/models.py:66 templates/base.html:55
+#: article/models.py:67 article/models.py:132 templates/base.html:55
 msgid "语言"
 msgstr "Language"
 
-#: article/models.py:67
+#: article/models.py:68
 msgid "标题"
 msgstr "Title"
 
-#: article/models.py:68
+#: article/models.py:69
 msgid "概述"
 msgstr "Summary"
 
-#: article/models.py:69
+#: article/models.py:70
 msgid "可以为空，可用于亮点案例的简介"
 msgstr ""
 "It can be blank and can be used for the introduction of highlight cases."
 
-#: article/models.py:70 article/templates/pub_detail.html:11
+#: article/models.py:71 article/templates/pub_detail.html:11
 msgid "编辑"
 msgstr "Editor"
 
-#: article/models.py:71
+#: article/models.py:72 article/models.py:133
 msgid "正文内容"
 msgstr "Body content"
 
-#: article/models.py:72
+#: article/models.py:73 article/models.py:134
 msgid "创建时间"
 msgstr "Creation time"
 
-#: article/models.py:73
+#: article/models.py:74 article/models.py:135
 msgid "修改时间"
 msgstr "Modification time"
 
-#: article/models.py:77
+#: article/models.py:78
 msgid "文章所属发布内容"
 msgstr "Publication of article"
 
-#: article/models.py:78
+#: article/models.py:79
 msgid ""
 "不同语言版本的文章所属发布内容，例如要发布新的内容a，需要先创建发布内容a，中"
 "文版a文章和英文版a文章必须关联对应的发布内容a"
@@ -142,9 +142,13 @@ msgstr ""
 "first. Chinese version a articles and English version a articles must be "
 "associated with corresponding release content a."
 
-#: article/models.py:88
+#: article/models.py:89
 msgid "1_文章"
 msgstr "1_Article"
+
+#: article/models.py:139
+msgid "关于网站"
+msgstr "About site"
 
 #: article/templates/pub_detail.html:12
 msgid "发布时间"
@@ -158,6 +162,18 @@ msgstr "Last update time"
 msgid "未发布当前语言版本的内容"
 msgstr "Content in the current language version is not published."
 
+#: article/templates/pub_list.html:17
+msgid "最新修改时间"
+msgstr "Latest modification time"
+
+#: article/templates/pub_list.html:68
+msgid "过滤"
+msgstr "FILTER"
+
+#: article/templates/pub_list.html:70
+msgid "全部"
+msgstr "All"
+
 #: bedsdg/urls.py:32
 msgid "地球大数据SDG管理"
 msgstr "SDG management of earth big data"
@@ -165,6 +181,14 @@ msgstr "SDG management of earth big data"
 #: bedsdg/urls.py:33
 msgid "地球大数据SDG管理后台"
 msgstr "Earth big data SDG management admin"
+
+#: templates/about.html:4 templates/base.html:48
+msgid "关于"
+msgstr "About"
+
+#: templates/about.html:13
+msgid "未编辑有关内容"
+msgstr "Nothing was edited"
 
 #: templates/base.html:40
 msgid "首页"
@@ -186,31 +210,32 @@ msgstr "Search"
 msgid "联系我们"
 msgstr "Contact"
 
-#: templates/base.html:48
-msgid "关于"
-msgstr "About"
-
+#: templates/index.html:64 templates/index.html:87 templates/index.html:110
 #: templates/index.html:133
+msgid "浏览更多"
+msgstr "Browse more"
+
+#: templates/index.html:153
 msgid "零饥饿"
 msgstr "Zero Hunger"
 
-#: templates/index.html:143
+#: templates/index.html:163
 msgid "清洁饮水和卫生设施"
 msgstr "Clean Water and Sanitation"
 
-#: templates/index.html:153
+#: templates/index.html:173
 msgid "可持续城市和社区"
 msgstr "Sustainable Cities and Communities"
 
-#: templates/index.html:163
+#: templates/index.html:183
 msgid "气候行动"
 msgstr "Climate Action"
 
-#: templates/index.html:173
+#: templates/index.html:193
 msgid "海洋生态"
 msgstr "Life below Water"
 
-#: templates/index.html:183
+#: templates/index.html:203
 msgid "陆地生物"
 msgstr "Life on Land"
 
